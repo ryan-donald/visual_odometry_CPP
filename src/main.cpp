@@ -1,12 +1,14 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
-int main() {
+int main()
+{
     std::cout << "Hello, World!" << std::endl;
-    
+
     cv::VideoCapture cap(0);
 
-    if (!cap.isOpened()) {
+    if (!cap.isOpened())
+    {
         std::cerr << "Error: Cam" << std::endl;
         return -1;
     }
@@ -14,10 +16,12 @@ int main() {
     cv::Mat frame;
     cv::namedWindow("Webcam", cv::WINDOW_AUTOSIZE);
 
-    while (true) {
+    while (true)
+    {
         cap >> frame;
 
-        if (frame.empty()) {
+        if (frame.empty())
+        {
             std::cerr << "blank frame" << std::endl;
             break;
         }
@@ -26,7 +30,8 @@ int main() {
 
         int key = cv::waitKey(1);
 
-        if (key == 'q' || key == 27) {
+        if (key == 'q' || key == 27)
+        {
             break;
         }
     }
